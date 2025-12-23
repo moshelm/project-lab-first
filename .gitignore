@@ -1,2 +1,29 @@
 .idea/
 .venv/
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# --- VS Code ---
+.vscode/
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
