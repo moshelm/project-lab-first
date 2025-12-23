@@ -1,0 +1,28 @@
+import mysql.connector
+
+
+HOST = 'localhost'
+PASSWORD = ''
+USER = 'root'
+
+class SQLDatabase:
+    def __init__(self):
+        self.conn = mysql.connector.connect(host=HOST,user=USER)
+        self.cursor =  self.conn.cursor()
+
+
+    def create_database(self, database_name:str):
+        self.cursor.execute(f"CREATE DATABASE IF NOT EXISTS `{database_name}`;")
+
+
+    def create_table(self, database:str, table_name:str):
+        self.cursor.execute(f'USE `{database}`')
+        self.cursor.execute(f"""CREATE TABLE IF NOT EXISTS `{table_name}` (
+                            id INT AUTO_INCREMENT PRIMARY KEY,
+                            first_name VARCHAR(50) NOT NULL,
+                            last_name VARCHAR(50) NOT NULL,
+                            phone_number VARCHAR(20) NOT NULL UNIQUE )
+                            
+                            ;""")
+
+
