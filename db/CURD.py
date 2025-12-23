@@ -24,5 +24,13 @@ class SQLDatabase:
                             phone\_number VARCHAR(20) NOT NULL UNIQUE )
                             
                             ;""")
+    
+
+    def insert_contact(self, table_name:str, contact:tuple):
+        sql = f"INSERT INTO `{table_name}` (first\_name, last\_name, phon\_number) \
+                            VALUES (%s, %s, %s)"
+        self.cursor.execute(sql, contact)
+        self.conn.commit()
+
 
 
